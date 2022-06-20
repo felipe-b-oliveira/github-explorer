@@ -11,13 +11,37 @@
 
 * **Operador '??'**: Nova funcionalidade do Javascript, tendo o seu uso mais comum quando queremos atribuir um valor padrão a algo. Se um valor 'a' é 'defined' então retorna 'a', se o valor 'a' é 'undefined' então retornamos 'b': 
 
->* ```result = a ?? b``` <br> 
-> _**é igual a**_ <br>
->* ```result = (a !== null && a !== undefined) ? a : b``` <br>
+```js
+result = a ?? b 
 
-* **Operador '&&'**: .
+// é igual a
+
+result = (a !== null && a !== undefined) ? a : b
+```
+
+* **Operador '&&'**: Executa um código dada uma determinada condição somente se esta for verdadeira. É como uma validação ternária que só retorna verdadeiro.
+
+```js
+isDevelopment && console.log("Ambiente de Desenvolvimento")
+```
 
 * **Programação Funcional - Imutabilidade**: Conceito da programação funcional na qual o React se inspirou, diz que não devemos alterar o objeto original, para trabalharmos com eles, devemos criar cópias desse objeto com as alterações que queremos.
 
->* ```listaDeFrutas = ['maçã', 'pêssego', 'goiaba']``` <br>
->* ```novaListaDeFrutas = [...listaDeFrutas, 'banana']``` <br>
+```js
+const listaDeFrutas = ['maçã', 'pêssego', 'goiaba']
+
+const novaListaDeFrutas = [...listaDeFrutas, 'banana']
+```
+
+* **Refresh Webpack Plugin**: Mantém alterações no state para fins específicos.
+
+* **Filter(Boolean)**: Retorna somente se a condição for verdadeira, ignorando os valores "falsy" como null e undefined.
+
+```js
+isDevelopment && new ReactRefreshWebpackPlugin(), 
+new HtmlWebpackPlugin({
+    template: path.resolve(__dirname, 'public', 'index.html')
+})
+].filter(Boolean),
+```
+
