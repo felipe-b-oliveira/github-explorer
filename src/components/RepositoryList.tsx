@@ -3,8 +3,14 @@ import { RepositoryItem } from "./RepositoryItem";
 
 import '../styles/repositories.scss';
 
+type Repository = {
+    name: string;
+    description: string;
+    html_url: string;
+}
+
 export function RepositoryList() {
-    const [repositories, setRepositories] = useState([]);
+    const [repositories, setRepositories] = useState<Repository[]>([]);
 
     useEffect(() => {
         fetch('https://api.github.com/users/felipe-b-oliveira/repos')
@@ -17,8 +23,8 @@ export function RepositoryList() {
             <h1>Lista de repositórios</h1>
 
             <ul>
-                {repositories.map((repo, i) => {
-                    return <RepositoryItem key={i} repository={repo}/>
+                {repositories.map(repo => {
+                    return <RepositoryItem key={repo.name} repository={repo}/>
                 })}
             </ul>
         </section>
